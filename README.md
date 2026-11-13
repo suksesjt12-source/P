@@ -1,49 +1,25 @@
-# 🥊 Fighter 3D
+# TACTICAL STRIKE: ZERO HOUR
 
-Game fighting 3D pure code — tanpa game engine. Dibangun dengan **Three.js (WebGL)** + **Android WebView**.
+A native Android 3D FPS prototype built with Kotlin + JNI + C++17 + OpenGL ES 3.0.
 
-## 🎮 Kontrol
+## Overview
+This project implements a lightweight custom game engine, a native OpenGL renderer, player input, enemy AI, mission flow, and Android lifecycle integration. The game is designed to run as a native Android application with a debug APK build workflow.
 
-**Mobile (Touch):**
-- **Joystick kiri** → gerak kiri/kanan
-- **PUNCH** (merah) → pukulan cepat
-- **KICK** (biru) → tendangan kuat
-- **BLOCK** (hijau) → tahan untuk defense
-- **ULTI** (kuning) → serangan spesial (butuh charge 100%)
+## Structure
+- `app/src/main/java/com/tacticalstrike/game` – Kotlin Android app and input/UI integration.
+- `app/src/main/cpp` – native game engine, renderer, enemy and weapon systems, JNI bridge.
+- `.github/workflows/android.yml` – GitHub Actions APK build workflow.
 
-**Desktop (Keyboard):**
-- `A` / `D` → gerak
-- `J` → Punch | `K` → Kick | `L` → Block | `U` → Ultimate
-
-## 🚀 Cara Build APK via GitHub
-
-1. **Fork / Push repo ini ke GitHub**
-2. Buka tab **Actions** di repo GitHub kamu
-3. Pilih workflow **"Build APK"** → klik **Run workflow**
-4. Tunggu 3-5 menit, download APK di tab **Artifacts**
-5. Install di Android (izinkan "Unknown Sources")
-
-## 📦 Build Lokal
-
+## Build locally
 ```bash
-./gradlew assembleDebug
-# APK ada di: app/build/outputs/apk/debug/app-debug.apk
+./gradlew :app:assembleDebug
 ```
 
-## 🎯 Fitur
+The APK is generated at:
+`app/build/outputs/apk/debug/app-debug.apk`
 
-- Rendering 3D real-time (WebGL/Three.js)
-- 2 fighter dengan AI
-- Sistem HP, timer, knockback
-- Efek hit particle
-- Dynamic camera follow
-- Ultimate move dengan charge meter
-- Arena dengan lighting dinamis
-- Touch control optimized untuk mobile
+## Build in GitHub Actions
+Push to `main` or run `workflow_dispatch` from the GitHub Actions tab. The workflow builds the native Android project and uploads the APK as an artifact named `TACTICAL-STRIKE-ANDROID-APK`.
 
-## 🧱 Teknologi
-
-- HTML5 + CSS3 + JavaScript
-- Three.js r155 (WebGL)
-- Android Kotlin + WebView
-- GitHub Actions CI/CD
+## Notes
+This project is a buildable native Android foundation for a tactical sci-fi FPS. It includes a custom engine loop, touch HUD input, procedural scene rendering, enemy simulation, and mission progression logic.
